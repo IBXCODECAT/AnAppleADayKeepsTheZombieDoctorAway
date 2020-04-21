@@ -9,7 +9,6 @@ public class PlayerJump : MonoBehaviour
     public Rigidbody rb;
     public float jumpForce;
 
-    public float clamp;
 
     void Update()
     {
@@ -17,19 +16,6 @@ public class PlayerJump : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space))
         {
             isJumping = true;
-        }
-        else
-        {
-            isJumping = false;
-        }
-
-        if (isJumping == false)
-        {
-            transform.position = new Vector3(transform.position.x, clamp, transform.position.z);
-        }
-        else
-        {
-            rb.AddForce(Vector3.up * Time.deltaTime * jumpForce);
         }
     }
 }
