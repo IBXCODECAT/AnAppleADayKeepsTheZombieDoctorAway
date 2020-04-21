@@ -11,7 +11,9 @@ public class PlayerMove : MonoBehaviour
     {
         float vertical = Input.GetAxis("Vertical");
         float horazontal = Input.GetAxis("Horizontal");
-        gameObject.transform.position += (Vector3.forward * vertical * Time.deltaTime * speed);
-        gameObject.transform.position += (Vector3.right * horazontal * Time.deltaTime * speed);
+
+        Vector3 movement = new Vector3(horazontal, 0, vertical);
+        movement = transform.TransformDirection(movement);
+        gameObject.transform.position += movement * Time.deltaTime * speed;
     }
 }
