@@ -11,6 +11,11 @@ public class AgentPathfinder : MonoBehaviour
 
     void Update()
     {
+       if (player)
         agent.destination = player.position;
+    }
+    private void Start()
+    {
+        player = GameObject.Find("Player").transform;
     }
 }
