@@ -12,6 +12,7 @@ public class Health : MonoBehaviour
     public float fillSpeed = 3;
 
     public Image healthBar;
+    public bool isPlayer;
 
     void Start()
     {
@@ -24,7 +25,7 @@ public class Health : MonoBehaviour
 
         if (currentHealth <= 0)
         {
-            print("You died!");
+            print("Player Died!");
             death();
         }
 
@@ -37,7 +38,14 @@ public class Health : MonoBehaviour
 
     public void death()
     {
-        Destroy(gameObject);
+        if (isPlayer)
+        {
+            UserInterface.instance.dead();
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
     }
 
 }

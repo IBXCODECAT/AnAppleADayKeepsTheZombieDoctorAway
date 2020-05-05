@@ -475,6 +475,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   agent: {fileID: 6111226575008808676}
   player: {fileID: 0}
+  damageValue: 100
+  cooldownTimer: 1
 --- !u!114 &2851027630937385396
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -955,7 +957,7 @@ Animator:
   m_Controller: {fileID: 9100000, guid: 92c93b80307cf90438fcfadd52eab10c, type: 2}
   m_CullingMode: 1
   m_UpdateMode: 0
-  m_ApplyRootMotion: 1
+  m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
