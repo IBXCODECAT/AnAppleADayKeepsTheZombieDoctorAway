@@ -14,6 +14,7 @@ public class PlayerMove : MonoBehaviour
 
         Vector3 movement = new Vector3(horazontal, 0, vertical);
         movement = transform.TransformDirection(movement);
+        movement.y = 0;
         gameObject.transform.position += movement * Time.deltaTime * speed;
     }
 }
