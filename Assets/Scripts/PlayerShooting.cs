@@ -6,11 +6,19 @@ public class PlayerShooting : MonoBehaviour
 {
     public GameObject projectile;
     public Transform spawnPosition;
+
+    public Animator scopeAnimator;
+
     public float fireRate;
 
     public float force;
 
+    [HideInInspector]
     public bool shooting;
+
+    private bool inOrOut;
+
+    public PlayerLook lookPlayer;
 
     private void Update()
     {
@@ -18,6 +26,24 @@ public class PlayerShooting : MonoBehaviour
         {
             shooting = true;
             StartCoroutine(Shooting());
+        }
+        if(Input.GetKeyDown(KeyCode.Mouse1))
+        {
+            scope();
+        }
+    }
+
+    void scope()
+    {
+        inOrOut = !inOrOut;
+        scopeAnimator.SetBool("Scope Animation", inOrOut);
+        if (inOrOut == true)
+        {
+            lookPlayer.axes = RotationAxes.MouseX;
+        }
+        else
+        {
+            lookPlayer.axes = RotationAxes.MouseXAndY;
         }
     }
 
