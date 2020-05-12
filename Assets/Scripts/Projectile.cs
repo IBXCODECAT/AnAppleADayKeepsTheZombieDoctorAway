@@ -8,7 +8,7 @@ public class Projectile : MonoBehaviour
     {
         if(col.tag == "Enemy")
         {
-            col.gameObject.GetComponent<Health>().damageCount(100);
+            col.gameObject.GetComponent<Health>().damageCount(100, transform.position);
         }
     }
 }

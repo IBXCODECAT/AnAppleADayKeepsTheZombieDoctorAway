@@ -28,7 +28,7 @@ public class AgentPathfinder : MonoBehaviour
             {
                 Debug.Log("Damaging Player");
                 cooldownActive = true;
-                healthScript.damageCount(damageValue);
+                healthScript.damageCount(damageValue, Vector3.zero);
                 StartCoroutine(damageCooldDown());
             }
         }

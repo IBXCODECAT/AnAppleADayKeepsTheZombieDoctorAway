@@ -493,6 +493,10 @@ MonoBehaviour:
   fillSpeed: 15
   healthBar: {fileID: 750625184}
   isPlayer: 0
+  hitEffects:
+  - {fileID: 6829972527372256006, guid: ca3ade099619131429cb427a59496c2c, type: 3}
+  - {fileID: 3596611008837485235, guid: 1853ab7173f39ae4daeb48a30254fe07, type: 3}
+  - {fileID: 9206503384338948622, guid: 5ff5085c9ad8a3145834b81b6803af11, type: 3}
 --- !u!1 &7106690193000031474
 GameObject:
   m_ObjectHideFlags: 0

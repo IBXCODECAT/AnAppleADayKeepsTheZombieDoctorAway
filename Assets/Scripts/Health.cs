@@ -13,15 +13,24 @@ public class Health : MonoBehaviour
 
     public Image healthBar;
     public bool isPlayer;
+    public bool hitEffect = true;
+
+    public GameObject[] hitEffects;
+
+    bool isDead;
 
     void Start()
     {
         currentHealth = maxHealth;
     }
 
-    public void damageCount(int damage)
+    public void damageCount(int damage, Vector3 position)
     {
+        if (isDead) return;
         currentHealth = currentHealth - damage;
+
+        if(!isPlayer && hitEffect)
+            Instantiate(hitEffects[Random.Range(0, hitEffects.Length)], position, Quaternion.identity);
 
         if (currentHealth <= 0)
         {
@@ -38,12 +47,14 @@ public class Health : MonoBehaviour
 
     public void death()
     {
+        isDead = true;
         if (isPlayer)
         {
             UserInterface.instance.dead();
         }
         else
         {
+            GameManager.Instance.EnemyDied();
             Destroy(gameObject);
         }
     }
