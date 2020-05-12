@@ -1,7 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Security.Cryptography;
 using UnityEngine;
-
+using UnityEngine.SceneManagement;
 public class PlayerMove : MonoBehaviour
 {
     public float speed = 7f;
@@ -45,5 +46,10 @@ public class PlayerMove : MonoBehaviour
 
         Vector3 move = new Vector3(movement.x * speed, verticalVelocity, movement.z * speed);
         cc.Move(move * Time.deltaTime);
+
+        if (transform.position.y < -100)
+        {
+            SceneManager.LoadScene(0);
+        }
     }
 }
