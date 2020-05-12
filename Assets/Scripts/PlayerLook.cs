@@ -7,6 +7,9 @@ public enum RotationAxes { MouseXAndY, MouseX, MouseY }
 public class PlayerLook : MonoBehaviour
 {
 	public RotationAxes axes = RotationAxes.MouseXAndY;
+
+	public float scale;
+
 	public float sensitivityX = 15F;
 	public float sensitivityY = 15F;
 
@@ -46,7 +49,7 @@ public class PlayerLook : MonoBehaviour
 		}
 		else if (axes == RotationAxes.MouseX)
 		{
-			rotationX += Input.GetAxis("Mouse X") * sensitivityX * Time.deltaTime;
+			rotationX += Input.GetAxis("Mouse X") * sensitivityX * scale * Time.deltaTime;
 			rotationX = ClampAngle(rotationX, minimumX, maximumX);
 
 			Quaternion xQuaternion = Quaternion.AngleAxis(rotationX, Vector3.up);
